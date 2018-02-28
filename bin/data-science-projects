@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative '../lib/data_science_projects_cli_app'
+
+DataScienceProjectsCliApp::CLI.new.call
