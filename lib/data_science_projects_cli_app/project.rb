@@ -4,18 +4,20 @@ class DataScienceProjectsCliApp::Project
 
   @@all = []
 
-  def initialize(project_hash)
-    project_hash.each {|key, value| self.send(("#{key}="), value)}
+  def initialize
     @@all << self
   end
 
-  def self.create_from_collection(projects_array)
-    projects_array.each {|project| Project.new(project)}
+  def test
+    puts "testing"
   end
 
-  def add_project_details(details_hash)
-    details_hash.each {|key, value| self.send(("#{key}="), value)}
-    self
+  def make_projects
+
+  end
+
+  def add_project_details
+
   end
 
   def self.all
