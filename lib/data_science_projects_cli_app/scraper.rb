@@ -1,16 +1,20 @@
-class DataScienceProjectsCliApp::Project
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
 
-  def self.scrape_index_page
+class DataScienceProjectsCliApp::Scraper
+
+  def self.scrape_projects_page
       html = open("https://dssg.uchicago.edu/projects/")
       projects_doc = Nokogiri::HTML(html)
       projects_array = []
       projects_doc.css("h3").each do |project|
-        array << {
-        :title => project.css("a").attribute("href").text,
+        projects_array << {
+        :title => project.css("a").text,
         :project_url => project.css("a").attribute("href").value
         }
   end
-    array
+    projects_array
   end
 
 

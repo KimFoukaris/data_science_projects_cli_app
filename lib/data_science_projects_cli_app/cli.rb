@@ -6,7 +6,8 @@ class DataScienceProjectsCliApp::CLI
   end
 
   def list_projects
-    projects_array = DataScienceProjectsCliApp::Project.new.test
+    projects_array = DataScienceProjectsCliApp::Project.new.make_projects
+
     puts "Data Science Projects for Good Include:"
     puts "1. xxx"
     puts "2. yyy"

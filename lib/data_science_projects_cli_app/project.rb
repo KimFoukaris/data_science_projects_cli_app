@@ -13,7 +13,8 @@ class DataScienceProjectsCliApp::Project
   end
 
   def make_projects
-
+    projects_array = DataScienceProjectsCliApp::Scraper.scrape_projects_page
+    puts projects_array
   end
 
   def add_project_details
