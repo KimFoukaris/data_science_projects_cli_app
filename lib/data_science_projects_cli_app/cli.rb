@@ -14,6 +14,8 @@ class DataScienceProjectsCliApp::CLI
   end
 
   def choose_project
+    project_details = DataScienceProjectsCliApp::Project.new.add_project_details
+
     input = nil
     while input != "exit"
       puts "Enter the number of project you would like more information on:"

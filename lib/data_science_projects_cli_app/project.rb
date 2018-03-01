@@ -1,6 +1,6 @@
 class DataScienceProjectsCliApp::Project
 
-  attr_accessor :title, :url, :fellows, :mentor, :partner, :description
+  attr_accessor :title, :project_url, :fellows, :mentor, :partner, :manager, :description
 
   @@all = []
 
@@ -14,11 +14,12 @@ class DataScienceProjectsCliApp::Project
 
   def make_projects
     projects_array = DataScienceProjectsCliApp::Scraper.scrape_projects_page
-    puts projects_array
+    #puts projects_array
   end
 
   def add_project_details
-
+    project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page
+    puts project_details
   end
 
   def self.all
