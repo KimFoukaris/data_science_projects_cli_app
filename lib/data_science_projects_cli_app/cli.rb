@@ -8,7 +8,10 @@ class DataScienceProjectsCliApp::CLI
   end
 
   def list_projects
+    puts " "
     puts "Data Science Projects for Good Include:"
+    puts "+++++++++++++++++++++++++++++++++++++++"
+    puts " "
     projects = DataScienceProjectsCliApp::Project.make_projects
   end
 
@@ -17,13 +20,25 @@ class DataScienceProjectsCliApp::CLI
 
     input = nil
     until input == "exit"
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+      puts " "
       puts "If you would like more information on a project, enter the project number."
       puts "If you would like to see the list again, enter 'list'."
       puts "If you would like to exit, enter 'exit'."
       input = gets.strip
       project_num = input.to_i
       if project_num > 0 && project_num <= project_details.length
-        puts "#{project_details[project_num-1].description}"
+        puts "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+        puts " "
+        puts "#{project_details[project_num-1].title.upcase}"
+        project_details[project_num-1].fellows = project_details[project_num-1].fellows.delete ":"
+        project_details[project_num-1].mentor = project_details[project_num-1].mentor.delete ":"
+        project_details[project_num-1].partner = project_details[project_num-1].partner.delete ":"
+        puts "Fellows:  #{project_details[project_num-1].fellows.strip}"
+        puts "Mentor:  #{project_details[project_num-1].mentor.strip}"
+        puts "Partner:  #{project_details[project_num-1].partner.strip}"
+        puts "Description:  #{project_details[project_num-1].description}"
+        puts " "
       elsif input == "list"
         list_projects
       elsif input == "exit"
@@ -33,6 +48,7 @@ class DataScienceProjectsCliApp::CLI
   end
 
   def exit
+    puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     puts "Thanks for your interest in data science projects for good."
   end
 

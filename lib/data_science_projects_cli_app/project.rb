@@ -16,19 +16,15 @@ class DataScienceProjectsCliApp::Project
     projects_array = DataScienceProjectsCliApp::Scraper.scrape_projects_page
     projects_array.each {|project| DataScienceProjectsCliApp::Project.new(project)}
     @@all.each {|project| puts "#{@@all.index(project)+1}. #{project.title}"}
-    #binding.pry
   end
 
   def self.add_project_details
     self.all.each do |project|
-      #binding.pry
       project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page(project.project_url)
       project_details.each {|key, value| project.send(("#{key}="), value)}
     end
-      @@all
-      #binding.pry
-      #puts project_details
-  end
+    @@all
+    end
 
   def self.all
     @@all

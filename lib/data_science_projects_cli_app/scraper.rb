@@ -21,11 +21,10 @@ class DataScienceProjectsCliApp::Scraper
     html = open(project_page)
     project_details_doc = Nokogiri::HTML(html)
     project = {
-      #:fellows => project_details_doc.css("span.project_attribute")[0],
-      #:mentor => project_details_doc.css("span.project_attribute")[1],
-      #:manager => project_details_doc.css("span.project_attribute")[2],
-      #:partner => project_details_doc.css("span.project_attribute")[3],
-      :description => project_details_doc.css("p").text
+      :fellows => project_details_doc.css("span.project_attribute")[0].next_sibling.text.strip,
+      :mentor => project_details_doc.css("span.project_attribute")[1].next_sibling.text.strip,
+      :partner => project_details_doc.css("span.project_attribute")[2].next_sibling.text.strip,
+      :description => project_details_doc.css("p")[0].text
       }
   end
 
