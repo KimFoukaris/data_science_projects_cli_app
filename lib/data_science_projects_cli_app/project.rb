@@ -21,7 +21,8 @@ class DataScienceProjectsCliApp::Project
 
   def self.add_project_details
     self.all.each do |project|
-      project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page
+      #binding.pry
+      project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page(project.project_url)
       project_details.each {|key, value| project.send(("#{key}="), value)}
     end
       @@all

@@ -17,8 +17,8 @@ class DataScienceProjectsCliApp::Scraper
     projects_array
   end
 
-  def self.scrape_project_details_page
-    html = open("https://dssg.uchicago.edu/project/predictinglongtermunemploymentcascais/")
+  def self.scrape_project_details_page(project_page)
+    html = open(project_page)
     project_details_doc = Nokogiri::HTML(html)
     project = {
       #:fellows => project_details_doc.css("span.project_attribute")[0],
