@@ -1,3 +1,5 @@
+require 'pry'
+
 class DataScienceProjectsCliApp::CLI
 
   def call
@@ -6,15 +8,20 @@ class DataScienceProjectsCliApp::CLI
   end
 
   def list_projects
-    projects_array = DataScienceProjectsCliApp::Project.new.make_projects
-
     puts "Data Science Projects for Good Include:"
-    puts "1. xxx"
-    puts "2. yyy"
+    projects = DataScienceProjectsCliApp::Project.make_projects
+    #puts projects
+    #projects.each {|project| puts "#{project.name}"}
+
+    #binding.pry
+
+    #puts "1. xxx"
+    #puts "2. yyy"
+
   end
 
   def choose_project
-    project_details = DataScienceProjectsCliApp::Project.new.add_project_details
+    project_details = DataScienceProjectsCliApp::Project.add_project_details
 
     input = nil
     while input != "exit"

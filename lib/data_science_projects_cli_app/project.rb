@@ -1,10 +1,15 @@
+require 'pry'
+
 class DataScienceProjectsCliApp::Project
 
   attr_accessor :title, :project_url, :fellows, :mentor, :partner, :manager, :description
 
   @@all = []
 
-  def initialize
+  def initialize(project_hash)
+    project_hash.each {|key,value| self.send(("#{key}="), value)}
+
+    #student_hash.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
   end
 
@@ -12,14 +17,17 @@ class DataScienceProjectsCliApp::Project
     puts "testing"
   end
 
-  def make_projects
+  def self.make_projects
     projects_array = DataScienceProjectsCliApp::Scraper.scrape_projects_page
-    #puts projects_array
+    projects_array.each {|project| DataScienceProjectsCliApp::Project.new(project)}
+    @@all.each {|project| puts "#{project.title}"}
+    #binding.pry
+    #students_array.each {|student| Student.new(student)}
   end
 
-  def add_project_details
+  def self.add_project_details
     project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page
-    puts project_details
+    #puts project_details
   end
 
   def self.all
