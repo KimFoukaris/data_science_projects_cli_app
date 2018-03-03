@@ -8,13 +8,7 @@ class DataScienceProjectsCliApp::Project
 
   def initialize(project_hash)
     project_hash.each {|key,value| self.send(("#{key}="), value)}
-
-    #student_hash.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
-  end
-
-  def test
-    puts "testing"
   end
 
   def self.make_projects
@@ -22,11 +16,13 @@ class DataScienceProjectsCliApp::Project
     projects_array.each {|project| DataScienceProjectsCliApp::Project.new(project)}
     @@all.each {|project| puts "#{@@all.index(project)+1}. #{project.title}"}
     #binding.pry
-    #students_array.each {|student| Student.new(student)}
   end
 
   def self.add_project_details
-    project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page
+    self.all.each do |project|
+      project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page
+      project_details.each {|key, value| project.send(("#{key}="), value)}
+    end
     #puts project_details
   end
 

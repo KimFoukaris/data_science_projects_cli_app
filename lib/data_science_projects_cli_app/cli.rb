@@ -25,7 +25,7 @@ class DataScienceProjectsCliApp::CLI
 
     input = nil
     while input != "exit"
-      puts "Enter the number of project you would like more information on:"
+      puts "Enter the number of the project you would like more information on:"
       input = gets.strip
       case input
       when "1"
