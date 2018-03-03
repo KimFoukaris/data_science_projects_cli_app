@@ -26,16 +26,10 @@ class DataScienceProjectsCliApp::CLI
     input = nil
     while input != "exit"
       puts "Enter the number of the project you would like more information on:"
-      input = gets.strip
-      case input
-      when "1"
-        puts "Project 1 info"
-      when "2"
-        puts "Project 2 info"
-      when "exit"
-        exit
-      when "list"
-        list_projects
+      #binding.pry
+      input = gets.strip.to_i
+      if input > 0 && input < project_details.length
+        puts "#{project_details[input-1].description}"
       else
         puts "Please enter:  the number of the project, 'list', or 'exit'"
       end
