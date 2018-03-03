@@ -12,6 +12,7 @@ class DataScienceProjectsCliApp::Project
   end
 
   def self.make_projects
+    @@all = []
     projects_array = DataScienceProjectsCliApp::Scraper.scrape_projects_page
     projects_array.each {|project| DataScienceProjectsCliApp::Project.new(project)}
     @@all.each {|project| puts "#{@@all.index(project)+1}. #{project.title}"}

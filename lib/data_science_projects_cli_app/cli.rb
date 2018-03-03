@@ -19,11 +19,10 @@ class DataScienceProjectsCliApp::CLI
     until input == "exit"
       puts "If you would like more information on a project, enter the project number."
       puts "If you would like to see the list again, enter 'list'."
-      puts "If not, enter 'exit'."
-      #binding.pry
+      puts "If you would like to exit, enter 'exit'."
       input = gets.strip
       project_num = input.to_i
-      if project_num > 0 && project_num < project_details.length
+      if project_num > 0 && project_num <= project_details.length
         puts "#{project_details[project_num-1].description}"
       elsif input == "list"
         list_projects
