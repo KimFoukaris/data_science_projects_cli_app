@@ -1,5 +1,3 @@
-require 'pry'
-
 class DataScienceProjectsCliApp::Project
 
   attr_accessor :title, :project_url, :fellows, :mentor, :partner, :manager, :description, :description2

@@ -1,7 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
-
 class DataScienceProjectsCliApp::Scraper
 
   def self.scrape_projects_page

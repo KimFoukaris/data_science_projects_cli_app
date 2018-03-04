@@ -1,5 +1,3 @@
-require 'pry'
-
 class DataScienceProjectsCliApp::CLI
 
   def call
@@ -58,6 +56,7 @@ class DataScienceProjectsCliApp::CLI
   def exit
     puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     puts "Thanks for your interest in data science projects for good."
+    puts " "
   end
 
 end
