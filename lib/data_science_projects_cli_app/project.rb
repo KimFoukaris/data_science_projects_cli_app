@@ -14,8 +14,8 @@ class DataScienceProjectsCliApp::Project
   def self.make_projects
     @@all = []
     projects_array = DataScienceProjectsCliApp::Scraper.scrape_projects_page
-    projects_array.each {|project| DataScienceProjectsCliApp::Project.new(project)}
-    @@all.each {|project| puts "#{@@all.index(project)+1}. #{project.title}"}
+    projects_array.each {|project| self.new(project)}
+    all.each {|project| puts "#{all.index(project)+1}. #{project.title}"}
   end
 
   def self.add_project_details
@@ -23,7 +23,7 @@ class DataScienceProjectsCliApp::Project
       project_details = DataScienceProjectsCliApp::Scraper.scrape_project_details_page(project.project_url)
       project_details.each {|key, value| project.send(("#{key}="), value)}
     end
-    @@all
+    all
     end
 
   def self.all

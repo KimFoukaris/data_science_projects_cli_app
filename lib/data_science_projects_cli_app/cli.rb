@@ -20,11 +20,7 @@ class DataScienceProjectsCliApp::CLI
 
     input = nil
     until input == "exit"
-      puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-      puts " "
-      puts "If you would like more information on a project, enter the project number."
-      puts "If you would like to see the list again, enter 'list'."
-      puts "If you would like to exit, enter 'exit'."
+      selector
       input = gets.strip
       project_num = input.to_i
       if project_num > 0 && project_num <= project_details.length
@@ -49,6 +45,14 @@ class DataScienceProjectsCliApp::CLI
         exit
       end
     end
+  end
+
+  def selector
+    puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    puts " "
+    puts "If you would like more information on a project, enter the project number."
+    puts "If you would like to see the list again, enter 'list'."
+    puts "If you would like to exit, enter 'exit'."
   end
 
   def exit
