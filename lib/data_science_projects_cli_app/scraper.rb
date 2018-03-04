@@ -24,7 +24,8 @@ class DataScienceProjectsCliApp::Scraper
       :fellows => project_details_doc.css("span.project_attribute")[0].next_sibling.text.strip,
       :mentor => project_details_doc.css("span.project_attribute")[1].next_sibling.text.strip,
       :partner => project_details_doc.css("span.project_attribute")[2].next_sibling.text.strip,
-      :description => project_details_doc.css("p")[0].text
+      :description => project_details_doc.css("p")[0].text,
+      :description2 => project_details_doc.css("p")[1].text
       }
   end
 
