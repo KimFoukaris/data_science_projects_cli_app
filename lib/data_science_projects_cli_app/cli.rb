@@ -1,5 +1,7 @@
 class DataScienceProjectsCliApp::CLI
 
+  attr_accessor :title
+
   def call
     list_projects
     choose_project
@@ -11,11 +13,11 @@ class DataScienceProjectsCliApp::CLI
     puts "+++++++++++++++++++++++++++++++++++++++"
     puts " "
     projects = DataScienceProjectsCliApp::Project.make_projects
+    projects.each {|project| puts "#{projects.index(project)+1}. #{project.title}"}
   end
 
   def choose_project
     project_details = DataScienceProjectsCliApp::Project.add_project_details
-
     input = nil
     until input == "exit"
       selector
