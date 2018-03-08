@@ -1,7 +1,5 @@
 class DataScienceProjectsCliApp::CLI
 
-  attr_accessor :title
-
   def call
     list_projects
     choose_project
